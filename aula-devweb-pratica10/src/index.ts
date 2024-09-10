@@ -13,7 +13,7 @@
 
 class Time {
     private _nome:string = "";
-    private _vitorias:number = 0.0;
+    private _vitórias:number = 0.0;
     private _empates:number = 0.0; 
     private _derrotas:number = 0.0;
 
@@ -33,10 +33,10 @@ class Time {
 
     public set vitorias(vitorias: number){
         if (vitorias < 0) return;
-        this._vitorias = vitorias;
+        this._vitórias = vitorias;
     }
     public get vitorias(): number{
-        return this._vitorias;
+        return this._vitórias;
     }
 
     public set empates(empates: number){
@@ -56,7 +56,7 @@ class Time {
     }
 
     public get pontos(): number{
-        return this._vitorias * 3 + this._empates
+        return this._vitórias * 3 + this._empates
     }
 }
 
@@ -65,6 +65,7 @@ times.push(new Time("Flamego", 10, 11, 13)); // 0
 times.push(new Time("Cruzeiro", 15, 9, 3)); // 1
 times.push(new Time("Fluminense", 20, 2, 1)); // 2
 
-console.log(times[0].pontos)
-times.sort()
+times.sort((a, b) => b.pontos - a.pontos)
+
+console.log(times)
 

@@ -14,7 +14,7 @@
 class Time {
     constructor(nome, vitorias, empates, derrotas) {
         this._nome = "";
-        this._vitorias = 0.0;
+        this._vitórias = 0.0;
         this._empates = 0.0;
         this._derrotas = 0.0;
         this.nome = nome;
@@ -33,10 +33,10 @@ class Time {
     set vitorias(vitorias) {
         if (vitorias < 0)
             return;
-        this._vitorias = vitorias;
+        this._vitórias = vitorias;
     }
     get vitorias() {
-        return this._vitorias;
+        return this._vitórias;
     }
     set empates(empates) {
         if (empates < 0)
@@ -55,15 +55,12 @@ class Time {
         return this._derrotas;
     }
     get pontos() {
-        return this._vitorias * 3 + this._empates;
+        return this._vitórias * 3 + this._empates;
     }
 }
 let times = [];
 times.push(new Time("Flamego", 10, 11, 13)); // 0
 times.push(new Time("Cruzeiro", 15, 9, 3)); // 1
 times.push(new Time("Fluminense", 20, 2, 1)); // 2
-console.log(times[0].pontos);
-// times.sort()
-// _vitorias:number = 0.0;
-//     private _empates:number = 0.0; 
-//     private _derrotas:number = 0.0;
+times.sort((a, b) => b.pontos - a.pontos);
+console.log(times);
