@@ -1,0 +1,2 @@
+Este projeto é uma aplicação desenvolvida com TypeScript e Node.js, utilizando Programação Orientada a Objetos (POO) para garantir uma estrutura clara e modular. O sistema foi projetado para gerenciar e exibir a tabela de classificação de times, com base em suas performances 
+ao longo de um campeonato. A abordagem orientada a objetos facilita a organização e manutenção do código, permitindo uma manipulação eficiente dos dados dos times e uma apresentação organizada das classificações.
