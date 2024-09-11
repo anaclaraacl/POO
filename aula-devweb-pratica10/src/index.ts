@@ -16,12 +16,14 @@ class Time {
     private _vitórias:number = 0.0;
     private _empates:number = 0.0; 
     private _derrotas:number = 0.0;
+    private _pontos:number = 0.0;
 
     public constructor(nome: string, vitorias: number, empates: number, derrotas: number) {
         this.nome = nome;
         this.vitorias = vitorias;
         this.empates = empates;
         this.derrotas = derrotas;
+        this.atualizaPontos();
     }
     public set nome(nome: string){
         if (nome === "") return;
@@ -34,6 +36,7 @@ class Time {
     public set vitorias(vitorias: number){
         if (vitorias < 0) return;
         this._vitórias = vitorias;
+        this.atualizaPontos();
     }
     public get vitorias(): number{
         return this._vitórias;
@@ -42,6 +45,7 @@ class Time {
     public set empates(empates: number){
         if (empates < 0) return;
         this._empates = empates;
+        this.atualizaPontos();
     }
     public get empates(): number{
         return this._empates;
@@ -56,16 +60,19 @@ class Time {
     }
 
     public get pontos(): number{
-        return this._vitórias * 3 + this._empates
+        return this._pontos;
+    }
+    private atualizaPontos(): void {
+        this._pontos = (3 * this._vitórias) + this._empates
     }
 }
 
-let times:Time[] = [];
-times.push(new Time("Flamego", 10, 11, 13)); // 0
-times.push(new Time("Cruzeiro", 15, 9, 3)); // 1
-times.push(new Time("Fluminense", 20, 2, 1)); // 2
+const tabela:Time[] = [];
+tabela.push(new Time("Flamego", 10, 11, 13)); // 0
+tabela.push(new Time("Cruzeiro", 15, 9, 3)); // 1
+tabela.push(new Time("Fluminense", 20, 2, 1)); // 2
 
-times.sort((a, b) => b.pontos - a.pontos)
+tabela.sort((a, b) => b.pontos - a.pontos)
 
-console.log(times)
+console.log(tabela);
 
